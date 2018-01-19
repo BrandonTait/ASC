@@ -1,5 +1,6 @@
 <?php
     require "db_connect.php";
+    session_start();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -43,13 +44,13 @@ Vulnerable Login</span></h3><br>
             <div class="form-group">
               <label for="inputEmail3" class="col-sm-2 control-label">Username</label>
               <div class="col-sm-8">
-                <input name="username" type="text" class="form-control" id="inputEmail3" placeholder="Username">
+                <input name="uid" type="text" class="form-control" id="inputEmail3" placeholder="Username">
               </div>
             </div>
             <div class="form-group">
               <label for="inputPassword3" class="col-sm-2 control-label">Password</label>
               <div class="col-sm-8">
-                <input name="password" type="text" class="form-control" id="inputPassword3" placeholder="Password">
+                <input name="pwd" type="text" class="form-control" id="inputPassword3" placeholder="Password">
               </div>
             </div>
             <div class="form-group">
@@ -64,28 +65,27 @@ Vulnerable Login</span></h3><br>
       <?php
         }
         else
-        {
-            $username = $_POST['username'];
-            $password = $_POST['password'];
+      {
+          $uid = $_POST['uid'];
+          $pwd = $_POST['pwd'];
 
-            $query = sprintf("SELECT * FROM users WHERE username = '%s' AND password = '%s';",
-                             $username,
-                             $password);
+          $query = sprintf("SELECT * FROM user WHERE uid = '%s' AND pwd = '%s';",
+                           $uid,
+                           $pwd);
 
-            $result = mysqli_query($connection, $query);
+          $result = mysqli_query($connection, $query);
 
-            if ($result->num_rows > 0)
-            {
-                ##echo "<p class=\"text-center\">Authenticated as <strong>" . $username . "</strong>. You now have access to confidential information.</p>";
-                  header('location: indexa.php');
-                // ...
-                // $_SESSION['logged_user'] = $username;
-                // ...
+          if ($result->num_rows > 0)
+          {
+              ##echo "<p class=\"text-center\">Authenticated as <strong>" . $username . "</strong>. You now have access to confidential information.</p>";
+                header('location: indexa.php');
+                $_SESSION['id'] = $uid;
+
+          }
+          else
+          {
+              echo "<p class=\"text-center\">Wrong username/password combination.</p>";
             }
-            else
-            {
-                echo "<p class=\"text-center\">Wrong username/password combination.</p>";
-              }
       ?>
 
       <hr>
@@ -103,7 +103,7 @@ Vulnerable Login</span></h3><br>
         </div>
       </div>
 
-      <?php } ?>
+    <?php } ?>
 
 <!--
       <hr>

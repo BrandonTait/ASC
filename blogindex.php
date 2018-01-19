@@ -1,14 +1,13 @@
 <?php
+date_default_timezone_set('America/New York');
 include 'dbh.inc.php';
 include 'comments.inc.php';
-  session_start();
-  if (!isset($_SESSION['id'])) {
-    header('location:index.php');
-    exit(); // <-- terminates the current script
-  }
+session_start();
+if (!isset($_SESSION['id'])) {
+  header('location:index.php');
+  exit(); // <-- terminates the current script
+}
 ?>
-
-<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -28,7 +27,7 @@ include 'comments.inc.php';
     <div class="container">
       <div class="header hidden-xs">
         <ul class="nav nav-pills pull-right">
-    
+
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Prosthetics<b class="caret"></b></a>
             <ul class="nav dropdown-menu">
@@ -50,24 +49,49 @@ include 'comments.inc.php';
       </div>
       <?php include("mobile-navbar2.php"); ?>
 
+      <br>
 
-
-<!--
-   <div class="jumbotron">
-        <h1>SQL Injection</h1>
-        <h2>Demonstration Project</h2>
-        <h3>The code of this demo is available at:</h3>
-        <h2 class="hidden-xs"><a href="https://github.com/ShinDarth/sql-injection-demo">github.com/ShinDarth/sql-injection-demo</a></h2>
-        <p class="lead visible-xs"><a href="https://github.com/ShinDarth/sql-injection-demo">github.com/ShinDarth/sql-injection-demo</a></p>
+      <div class="banner">
+        <center>
+        <img src="OTTO BOCK X3 WATERPROOF PROSTHETIC.png" alt="Banner" style="max-width: 100%;
+      height: auto;">
+      </center>
       </div>
--->
-    <div class="banner">
-      <center>
-      <img src="images\simple-circle-wallpaper-1920x1200.jpg" alt="Banner" style="max-width: 100%;
-    height: auto;">
-    </center>
-    </div>
 
+  <h3 class="text-center"><span class="label label-default">Reviews</span></h3><br>
+      <hr>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Otto Bock Waterproof Prosthetic</title>
+
+<link href="bootstrap.min.css" rel="stylesheet">
+<link href="style.css" rel="stylesheet">
+</head>
+
+<body>
+
+
+
+
+<?php
+
+if (isset($_SESSION['id'])) {
+  echo "<form method='GET' action='".setComments($conn)."'>
+    <input type='hidden' name='uid' value='Anonymous'>
+    <input type='hidden' name='date' value='".date('Y-m-d H:i:s')."'>
+    <textarea name='message'></textarea>
+    <br>
+    <button type='submit' name='commentSubmit'>Comment</button>
+  </form>";
+} else {
+  echo "You need to be logged in to comment! <br><br>";
+}
+
+
+  getComments($conn);
+
+?>
 
 <?php
     /* echo "<form method='POST' action='".getLogin($conn)."'>
@@ -87,13 +111,5 @@ include 'comments.inc.php';
   */
 ?>
 
-
-
-      <?php include("footer.php"); ?>
-
-    </div> <!-- /container -->
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-  </body>
+</body>
 </html>
