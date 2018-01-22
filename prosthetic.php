@@ -31,7 +31,7 @@
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Prosthetics<b class="caret"></b></a>
             <ul class="nav dropdown-menu">
               <li><a href="prosthetic.php">Search</a></li>
-              <li><a href="blogindex.php">Reviews</a></li>
+              <li><a href="product.php">Reviews</a></li>
             </ul>
           </li>
           <li class="dropdown">

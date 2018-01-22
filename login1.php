@@ -66,12 +66,13 @@ Vulnerable Login</span></h3><br>
         }
         else
       {
-          $uid = $_POST['uid'];
-          $pwd = $_POST['pwd'];
+        $uid = $_POST['uid'];
+        $pwd = $_POST['pwd'];
+        $hashed = hash('sha512', $pwd);
 
-          $query = sprintf("SELECT * FROM user WHERE uid = '%s' AND pwd = '%s';",
-                           $uid,
-                           $pwd);
+        $query = sprintf("SELECT * FROM user WHERE uid = '%s' AND pwd = '$hashed';",
+                         $uid,
+                         $hashed);
 
           $result = mysqli_query($connection, $query);
 
