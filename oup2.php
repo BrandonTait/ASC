@@ -26,12 +26,12 @@
     <div class="container">
       <div class="header hidden-xs">
         <ul class="nav nav-pills pull-right">
-      
+
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Prosthetics<b class="caret"></b></a>
             <ul class="nav dropdown-menu">
               <li><a href="prosthetic.php">Search</a></li>
-              <li><a href="blogindex.php">Reviews</a></li>
+              <li><a href="product.php">Reviews</a></li>
             </ul>
           </li>
           <li class="dropdown">

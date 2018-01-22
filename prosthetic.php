@@ -86,7 +86,7 @@
 
 		if ($query != null)
 		{
-			$result = mysqli_query($connection, $query);
+			$result = mysqli_multi_query($connection, $query);
 
 			while (($row = mysqli_fetch_row($result)) != null)
 			{

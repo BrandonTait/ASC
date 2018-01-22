@@ -61,31 +61,35 @@ include 'comments.inc.php';
         <p class="lead visible-xs"><a href="https://github.com/ShinDarth/sql-injection-demo">github.com/ShinDarth/sql-injection-demo</a></p>
       </div>
 -->
+
+
+
+
     <div class="banner">
       <center>
       <img src="images\simple-circle-wallpaper-1920x1200.jpg" alt="Banner" style="max-width: 100%;
     height: auto;">
     </center>
     </div>
+<br>
+    <?php
+        /* echo "<form method='POST' action='".getLogin($conn)."'>
+        <input type='text' name='uid' placeholder='username'>
+        <input type='password' name='pwd' placeholder='password'>
+        <button type='submit' name='loginSubmit'>Login</button>
+        </form>"; */
 
+        echo "<form method='POST' action='".userLogout()."'>
+        <button type='submit' name='logoutSubmit'>Logout</button>
+        </form>";
 
-<?php
-    /* echo "<form method='POST' action='".getLogin($conn)."'>
-    <input type='text' name='uid' placeholder='username'>
-    <input type='password' name='pwd' placeholder='password'>
-    <button type='submit' name='loginSubmit'>Login</button>
-    </form>"; */
+    /*    if (isset($_SESSION['id'])) {
+          echo "You are logged in.";
+        } else {
+          echo "You are not logged in.";
+      */
+    ?>
 
-    echo "<form method='POST' action='".userLogout()."'>
-    <button type='submit' name='logoutSubmit'>Logout</button>
-    </form>";
-
-/*    if (isset($_SESSION['id'])) {
-      echo "You are logged in.";
-    } else {
-      echo "You are not logged in.";
-  */
-?>
 
 
 
