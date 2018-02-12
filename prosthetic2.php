@@ -52,7 +52,7 @@
 
       <div class="row">
         <div class="col-sm-10">
-          <form class="form-inline" role="form" action="prosthetic.php" method="GET">
+          <form class="form-inline" role="form" action="prosthetic2.php" method="GET">
             <div class="form-group">
               <label class="sr-only" for="exampleInputEmail2">ID</label>
               <input type="text" name="id" class="form-control" placeholder="Prosthetic ID #">
@@ -86,7 +86,7 @@
 
 		if ($query != null)
 		{
-			$result = mysqli_multi_query($connection, $query);
+			$result = mysqli_query($connection, $query);
 
 			while (($row = mysqli_fetch_row($result)) != null)
 			{

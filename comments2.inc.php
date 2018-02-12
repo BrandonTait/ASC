@@ -21,7 +21,7 @@ function getComments($conn) {
   $result = mysqli_query($conn,$sql);
   while($row = $result ->fetch_assoc()){
 
-          printf($row['uid']."<br>");
+        #printf($row['uid']."<br>");
           printf($row['date']."<br>");
           printf($row['message']."<br><br>");
 
